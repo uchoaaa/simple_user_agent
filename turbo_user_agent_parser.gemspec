@@ -6,10 +6,10 @@ require 'turbo_user_agent_parser/version'
 Gem::Specification.new do |spec|
   spec.name          = "turbo_user_agent_parser"
   spec.version       = TurboUserAgentParser::VERSION
-  spec.authors       = ["Rafael Uchôa"]
+  spec.authors       = ["Rafael Uchoa"]
   spec.email         = ["rafael@overmediacast.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Parsing user_agents like a boss!}
+  spec.summary       = %q{Parsing user_agents like a boss!}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,6 +18,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_runtime_dependency 'useragent'
+
+  spec.add_development_dependency 'bundler', '~> 1.3'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'foreman'
+
+  spec.add_development_dependency 'bacon', '1.1.0'
+  spec.add_development_dependency 'mocha-on-bacon', '0.2.1'
+  spec.add_development_dependency 'guard-bacon', '1.0.7'
+  
 end
