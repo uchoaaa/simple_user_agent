@@ -19,7 +19,7 @@ class TurboUserAgent
     
     identify_os
     identify_browser 
-    identify_device if @device.nil?
+    # identify_device if @device.nil?
   end
   
   def identify_os
@@ -31,10 +31,6 @@ class TurboUserAgent
       @os = 'Android'
 
     end
-  end
-  
-  def identify_device
-    
   end
   
   def identify_browser
@@ -49,12 +45,12 @@ class TurboUserAgent
     elsif @os == 'Android'
 
       # https://developers.google.com/chrome/mobile/docs/user-agent
-      if @user_agent.to_s =~ /Chrome\/[.0-9]*/  
-        @browser = 'Chrome'
-        @device  = 'Tablet'
-      elsif @user_agent.to_s =~ /Chrome\/[.0-9]* Mobile/
+      if @user_agent.to_s =~ /Chrome\/[.0-9]* Mobile/ 
         @browser = 'Chrome'
         @device  = 'Mobile'
+      elsif @user_agent.to_s =~ /Chrome\/[.0-9]*/ 
+        @device  = 'Tablet'
+        @browser = 'Chrome'
       end
 
     end
