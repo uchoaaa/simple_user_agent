@@ -25,6 +25,9 @@ class TurboUserAgent
   def identify_os
     if @partes.first =~ /iPhone/
       'iPhone'
+
+    elsif @partes.first =~ /Android/
+      'Android'
     end
   end
   
@@ -33,7 +36,10 @@ class TurboUserAgent
   end
   
   def identify_browser
-    if @os == 'iPhone' and @user_agent =~ /CriOS\/[.0-9]*/ 
+    if @os == 'iPhone' and @user_agent.to_s =~ /CriOS\/[.0-9]*/
+      'Chrome'
+    
+    elsif @os == 'Android' and @user_agent.to_s =~ /Chrome\/[.0-9]*/
       'Chrome'
     end
   end
