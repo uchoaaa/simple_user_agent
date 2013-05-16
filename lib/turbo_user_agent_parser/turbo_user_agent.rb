@@ -1,7 +1,6 @@
 class TurboUserAgent
-  attr_reader :user_agent
-  
-  # https://github.com/josh/useragent
+  attr_reader :user_agent # https://github.com/josh/useragent
+
   def initialize(user_agent)
     @user_agent = user_agent
   end
