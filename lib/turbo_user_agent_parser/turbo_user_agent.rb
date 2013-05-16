@@ -17,30 +17,41 @@ class TurboUserAgent
   def process!
     @partes = @user_agent.to_s.match(MATCHER).to_a
     
-    @os      = identify_os
-    @device  = identify_device
-    @browser = identify_browser 
+    identify_os
+    identify_browser 
+    identify_device if @device.nil?
   end
   
   def identify_os
     if @partes.first =~ /iPhone/
-      'iPhone'
+      @os = 'iPhone'
+      @device = 'Mobile'
 
     elsif @partes.first =~ /Android/
-      'Android'
+      @os = 'Android'
+
     end
   end
   
   def identify_device
-    'Mobile' if %w{iPhone}.include? @os
+    
   end
   
   def identify_browser
     if @os == 'iPhone' and @user_agent.to_s =~ /CriOS\/[.0-9]*/
-      'Chrome'
-    
-    elsif @os == 'Android' and @user_agent.to_s =~ /Chrome\/[.0-9]*/
-      'Chrome'
+      @browser = 'Chrome'
+
+    elsif @os == 'Android'
+
+      # https://developers.google.com/chrome/mobile/docs/user-agent
+      if @user_agent.to_s =~ /Chrome\/[.0-9]*/  
+        @browser = 'Chrome'
+        @device  = 'Tablet'
+      elsif @user_agent.to_s =~ /Chrome\/[.0-9]* Mobile/
+        @browser = 'Chrome'
+        @device  = 'Mobile'
+      end
+
     end
   end
 end
