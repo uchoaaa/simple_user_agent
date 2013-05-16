@@ -18,12 +18,12 @@ describe 'TurboUserAgentParser to mobile user_agents strings' do
         :os      => 'iPhone',
         :browser => 'Safari',
       },
-      # {
-      #   :ua      => 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19',
-      #   :device  => 'Mobile',
-      #   :os      => 'Android',
-      #   :browser => 'Chrome'
-      # }
+      {
+        :ua      => 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19',
+        :device  => 'Mobile',
+        :os      => 'Android',
+        :browser => 'Chrome'
+      }
     
     ].each do |line|
       user_agent_str = line[:ua]

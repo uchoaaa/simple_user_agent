@@ -15,7 +15,11 @@ class TurboUserAgent
   end
   
   def os
-    @user_agent.platform
+    if @user_agent.mobile? and @user_agent.platform == 'Linux'
+      'Android'
+    else
+      @user_agent.platform
+    end
   end
   
   def browser
