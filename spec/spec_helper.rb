@@ -10,4 +10,14 @@ def today_is( fake_day )
   Date.stubs(:today).returns(today)
 end
 
+def user_agent(user_agent_str)
+  @turbo = TurboUserAgentParser.parse(user_agent_str)
+end
+
+def should_be(device, os, browser)
+  @turbo.device.should  == device
+  @turbo.os.should      == os
+  @turbo.browser.should == browser
+end
+
 Bacon.summary_on_exit

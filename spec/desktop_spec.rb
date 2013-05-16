@@ -3,6 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe 'TurboUserAgentParser to desktops user_agents strings' do
 
+  #TODO Refatorar para usar os helpers 'user_agent' e 'should_be'
   it 'should return device as Desktop and the right browser and os' do
     
     [
