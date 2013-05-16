@@ -34,6 +34,10 @@ class TurboUserAgent
       @os = 'Mac OS'
       @device = 'Desktop'
 
+    elsif @partes.first =~ /Windows/
+      @os = 'Windows'
+      @device = 'Desktop'
+
     end
   end
   
@@ -57,7 +61,7 @@ class TurboUserAgent
         @browser = 'Chrome'
       end
       
-    elsif @os == 'Mac OS'
+    elsif @device == 'Desktop'
 
       if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /Chrome\/[.0-9]*/
         @browser = 'Safari'

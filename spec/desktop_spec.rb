@@ -13,25 +13,9 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     should_be 'Desktop', 'Mac OS', 'Chrome'
   end 
 
-  #TODO Refatorar para usar os helpers 'user_agent' e 'should_be'
-  # it 'should return device as Desktop and the right browser and os' do
-  #   
-  #   [
-  #     {
-  #       :ua      => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19',
-  #       :device  => 'Desktop',
-  #       :os      => 'Windows',
-  #       :browser => 'Chrome'
-  #     }
-  #     
-  #   ].each do |line|
-  #     user_agent_str = line[:ua]
-  #   
-  #     turbo = TurboUserAgentParser.parse(user_agent_str)
-  #     turbo.device.should  == line[:device]
-  #     turbo.os.should      == line[:os]
-  #     turbo.browser.should == line[:browser]
-  #   end
-  # end
+  it 'shoud be Desktop, Windows and Chrome' do
+    user_agent 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19'
+    should_be 'Desktop', 'Windows', 'Chrome'
+  end 
 
 end
