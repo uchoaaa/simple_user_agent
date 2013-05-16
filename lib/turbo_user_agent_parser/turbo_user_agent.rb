@@ -7,8 +7,12 @@ class TurboUserAgent
   end
   
   def device
-    if @user_agent.mobile?
-      'Mobile'
+    if @user_agent.mobile? #https://github.com/josh/useragent/blob/ba32677e095f86449cb7fbb378fd2a2ce66fd168/lib/user_agent/browsers/all.rb
+      if @user_agent.to_s.match(/Mobile/) #https://developers.google.com/chrome/mobile/docs/user-agent
+        'Mobile'
+      else
+        'Tablet'
+      end
     else
       'Desktop'
     end
