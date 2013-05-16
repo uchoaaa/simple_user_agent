@@ -61,8 +61,10 @@ class TurboUserAgent
 
       if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /Chrome\/[.0-9]*/
         @browser = 'Safari'
+      elsif @user_agent.to_s =~ /Safari\/[.0-9]*/ and @user_agent.to_s =~ /Chrome\/[.0-9]*/
+        @browser = 'Chrome'
       end
-      
+
     end
   end
 end
