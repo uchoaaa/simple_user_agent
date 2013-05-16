@@ -3,16 +3,15 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe 'TurboUserAgentParser to desktops user_agents strings' do
 
+  it 'should be Desktop, Mac OS and Safari' do
+    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.53.11 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10'
+    should_be 'Desktop', 'Mac OS', 'Safari'
+  end
+
   #TODO Refatorar para usar os helpers 'user_agent' e 'should_be'
   # it 'should return device as Desktop and the right browser and os' do
   #   
   #   [
-  #     {
-  #       :ua      => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.53.11 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10',
-  #       :device  => 'Desktop',
-  #       :os      => 'Macintosh', #TODO: Macintosh é muito feio! Trocar para Mac OS
-  #       :browser => 'Safari',
-  #     },
   #     {
   #       :ua      => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.53.11 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10', 
   #       :device  => 'Desktop',

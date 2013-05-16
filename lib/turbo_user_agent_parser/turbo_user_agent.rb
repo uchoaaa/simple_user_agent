@@ -30,6 +30,10 @@ class TurboUserAgent
     elsif @partes.first =~ /Android/
       @os = 'Android'
 
+    elsif @partes.first =~ /Mac\ OS/
+      @os = 'Mac OS'
+      @device = 'Desktop'
+
     end
   end
   
@@ -52,7 +56,13 @@ class TurboUserAgent
         @device  = 'Tablet'
         @browser = 'Chrome'
       end
+      
+    elsif @os == 'Mac OS'
 
+      if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /Chrome\/[.0-9]*/
+        @browser = 'Safari'
+      end
+      
     end
   end
 end
