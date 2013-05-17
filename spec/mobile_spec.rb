@@ -31,4 +31,9 @@ describe 'TurboUserAgentParser to mobile user_agents strings' do
     should_be 'Mobile', 'Android', 'Chrome'
   end
 
+  it 'should be Android and Firefox' do
+    user_agent 'Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0'
+    should_be 'Mobile', 'Android', 'Firefox'
+  end
+
 end
