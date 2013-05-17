@@ -108,4 +108,22 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5'
     should_be 'Desktop', 'Linux', 'Chrome'
   end
+
+  it 'should be Linux and Other' do
+    user_agent 'Opera/9.62 (X11; Linux i686; U; en) Presto/2.1.1'
+    should_be 'Desktop', 'Linux', 'Other'
+
+    user_agent 'Opera/9.80 (X11; Linux x86_64; U; fr) Presto/2.9.168 Version/11.50'
+    should_be 'Desktop', 'Linux', 'Other'
+
+    user_agent 'Opera/9.80 (X11; Linux i686; U; hu) Presto/2.9.168 Version/11.50'
+    should_be 'Desktop', 'Linux', 'Other'
+
+    user_agent 'Mozilla/5.0 (X11; Linux) KHTML/4.9.1 (like Gecko) Konqueror/4.9'
+    should_be 'Desktop', 'Linux', 'Other'
+
+    user_agent 'Mozilla/5.0 (compatible; Konqueror/4.5; FreeBSD) KHTML/4.5.4 (like Gecko)'
+    should_be 'Desktop', 'Linux', 'Other'
+  end
+
 end
