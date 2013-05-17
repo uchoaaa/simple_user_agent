@@ -54,6 +54,11 @@ class TurboUserAgent
       @os = 'Linux'
       @device = 'Desktop'
 
+    else
+      @os = 'Other'
+      @device = 'Other'
+      @browser = 'Other'
+
     end
   end
   
