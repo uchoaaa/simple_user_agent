@@ -62,12 +62,17 @@ class TurboUserAgent
     elsif @partes.first =~ /Linux|FreeBSD|Ubuntu/
       @os = 'Linux'
       @device = 'Desktop'
-      
-    elsif @user_agent.to_s =~ /Mobile/
+
+    elsif @partes.first =~ /BB10/
+      @os = 'Blackberry'
+      @device = 'Mobile'
+      @browser = 'Other'
+
+    elsif @user_agent.to_s =~ /Mobile/ or @partes.first =~ /SymbOS|SymbianOS|webOS/
       @os = 'Other'
       @device = 'Mobile'
       @browser = 'Other'
-      
+
     else
       @os = 'Other'
       @device = 'Other'
@@ -102,6 +107,9 @@ class TurboUserAgent
       elsif @user_agent.to_s =~ /Firefox\/[.0-9]*/ and @user_agent.to_s =~ /Mobile/ 
         @device  = 'Mobile'
         @browser = 'Firefox'
+      else
+        @device  = 'Mobile'
+        @browser = 'Other'
       end
       
     elsif @os == 'iPad'
