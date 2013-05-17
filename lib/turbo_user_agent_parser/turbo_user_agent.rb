@@ -2,10 +2,13 @@
 # Helpful links:
 # https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
 # https://developers.google.com/chrome/mobile/docs/user-agent
-
+# http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safariwebcontent/OptimizingforSafarioniPhone/OptimizingforSafarioniPhone.html
 
 # TODO:
 # Trocar Desktop por Computer
+# I18n? Computer, ordenador, computador..
+# Add UA de App como agregadores (Flipboard), Google Reader, etc
+# Add UA de crawlers (google, bing, facebook, etc) #acho que não precisa pq essa chamada para identificar vem via JS
 class TurboUserAgent
   attr_reader :user_agent, :device, :os, :browser
   
@@ -67,8 +70,10 @@ class TurboUserAgent
 
       if @user_agent.to_s =~ /CriOS\/[.0-9]*/
         @browser = 'Chrome'
-      else
+      elsif @user_agent.to_s =~ /Safari\/[.0-9]*/
         @browser = 'Safari'
+      else
+        @browser = 'Other'
       end
 
     elsif @os == 'Android'
