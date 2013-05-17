@@ -96,6 +96,8 @@ class TurboUserAgent
         @browser = 'Chrome'
       elsif @user_agent.to_s =~ /Firefox\/[.0-9]*/ and not @user_agent.to_s =~ /Seamonkey\/[.0-9]*/
         @browser = 'Firefox'
+      elsif @user_agent.to_s =~ /MSIE [.0-9]*/
+        @browser = 'Internet Explorer'
       end
 
     end

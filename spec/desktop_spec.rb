@@ -55,4 +55,25 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     user_agent 'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0) Gecko/20100101 Firefox/10.0 Fennec/10.0'
     should_be 'Desktop', 'Linux', 'Firefox'
   end
+
+  it 'should be Desktop, Windows and IE' do
+    user_agent 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)'
+    should_be 'Desktop', 'Windows', 'Internet Explorer'
+    
+    user_agent 'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)'
+    should_be 'Desktop', 'Windows', 'Internet Explorer'
+    
+    user_agent 'Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; SLCC1; .NET CLR 1.1.4322)'
+    should_be 'Desktop', 'Windows', 'Internet Explorer'
+    
+    user_agent 'Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))'
+    should_be 'Desktop', 'Windows', 'Internet Explorer'
+    
+    user_agent 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/4.0; InfoPath.2; SV1; .NET CLR 2.0.50727; WOW64)'
+    should_be 'Desktop', 'Windows', 'Internet Explorer'
+    
+    user_agent 'Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0'
+    should_be 'Desktop', 'Windows', 'Internet Explorer'
+  end
+
 end
