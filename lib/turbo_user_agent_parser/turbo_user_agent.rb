@@ -45,7 +45,7 @@ class TurboUserAgent
       @os = 'iPad'
       @device = 'Tablet'
 
-    elsif @partes.first =~ /Mac\ OS/
+    elsif @partes.first =~ /Mac\ OS/ and not @user_agent.to_s =~ /Mobile/
       @os = 'Mac OS'
       @device = 'Desktop'
 
@@ -56,7 +56,12 @@ class TurboUserAgent
     elsif @partes.first =~ /Linux/
       @os = 'Linux'
       @device = 'Desktop'
-
+      
+    elsif @user_agent.to_s =~ /Mobile/
+      @os = 'Other'
+      @device = 'Mobile'
+      @browser = 'Other'
+      
     else
       @os = 'Other'
       @device = 'Other'
