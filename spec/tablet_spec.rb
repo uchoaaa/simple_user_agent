@@ -31,5 +31,21 @@ describe 'TurboUserAgentParser to Tablet user_agents strings' do
     should_be 'Tablet', 'Android', 'Chrome'
   end
 
-  # it 'should be Windows and IE'
+  # it 'should be Android and Other' do
+    # user_agent 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) UCHOA/18.0.1025.133 Safari/535.19'
+    # should_be 'Tablet', 'Android', 'Other'
+    # should_be 'Mobile', 'Android', 'Other'
+
+    # Mozilla/5.0 (Android; Tablet; rv:13.0) Gecko/13.0 UCHOAS/13.0'
+  # end
+
+  it 'should be Windows and IE' do
+    user_agent 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch)'
+    should_be 'Tablet', 'Windows', 'Internet Explorer'
+  end
+
+  it 'should be Blackberry and Other' do
+    user_agent 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.0.0; en-US) AppleWebKit/535.8+ (KHTML, like Gecko) Version/7.2.0.0 Safari/535.8+'
+    should_be 'Tablet', 'Blackberry', 'Other'
+  end
 end

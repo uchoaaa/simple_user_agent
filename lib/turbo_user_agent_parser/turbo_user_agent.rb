@@ -33,7 +33,7 @@ class TurboUserAgent
     
     identify_os
     identify_browser 
-    # identify_device if @device.nil?
+    identify_device if @device.nil?
   end
   
   def identify_os
@@ -52,13 +52,23 @@ class TurboUserAgent
       @os = 'Mac OS'
       @device = 'Desktop'
 
-    elsif @partes.first =~ /Windows/ and not @user_agent.to_s =~ /Windows\ Phone/ 
+    elsif @partes.first =~ /Windows/ and not @user_agent.to_s =~ /Windows\ Phone/  and not @user_agent.to_s =~ /Touch/ 
       @os = 'Windows'
       @device = 'Desktop'
 
     elsif @user_agent.to_s =~ /Windows\ Phone/ 
       @os = 'Windows Phone'
       @device = 'Mobile'
+
+    elsif @user_agent.to_s =~ /Windows/ and @user_agent.to_s =~ /Touch/
+      @os = 'Windows'
+      @device = 'Tablet'
+      @browser = 'Internet Explorer'
+
+    elsif @user_agent.to_s =~ /PlayBook/
+      @os = 'Blackberry'
+      @device = 'Tablet'
+      @browser = 'Other'
 
     elsif @partes.first =~ /Linux|FreeBSD|Ubuntu/
       @os = 'Linux'
@@ -108,8 +118,11 @@ class TurboUserAgent
       elsif @user_agent.to_s =~ /Firefox\/[.0-9]*/ and @user_agent.to_s =~ /Mobile/ 
         @device  = 'Mobile'
         @browser = 'Firefox'
-      else
+      elsif @user_agent.to_s =~ /Opera\ Mobi/
         @device  = 'Mobile'
+        @browser = 'Other'
+      else
+        # @device  = 'Mobile' #pode ser tbm tablet!
         @browser = 'Other'
       end
       
@@ -144,7 +157,21 @@ class TurboUserAgent
       else
         @browser = 'Other'
       end
+      
+    end
+  end
 
+  def identify_device
+    if @os == 'Android'
+      
+      if @user_agent.to_s =~ /Mobile/ 
+        @device = 'Mobile'
+      # else
+      #   @device = 'Tablet'
+      end
+      
+    else
+      @device = 'Other'
     end
   end
 end
