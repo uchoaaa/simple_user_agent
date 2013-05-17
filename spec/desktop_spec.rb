@@ -3,27 +3,46 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe 'TurboUserAgentParser to desktops user_agents strings' do
 
-  it 'should be Desktop, Mac OS and Safari' do
+  it 'should be Mac OS and Safari' do
     user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.53.11 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10'
     should_be 'Desktop', 'Mac OS', 'Safari'
   end
 
-  it 'should be Desktop, Mac OS and Chrome' do
+  it 'should be Mac OS and Chrome' do
     user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.151 Safari/535.19'
     should_be 'Desktop', 'Mac OS', 'Chrome'
   end 
 
-  it 'should be Desktop, Windows and Chrome' do
+  it 'should be Mac OS and Firefox' do
+    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Mac OS', 'Firefox'
+
+    user_agent 'Mozilla/5.0 (Macintosh; PPC Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Mac OS', 'Firefox'
+  end
+
+  it 'should be Mac OS and Other' do
+    user_agent 'Opera/9.80 (Macintosh; Intel Mac OS X 10.8.2) Presto/2.12.388 Version/12.11'
+    should_be 'Desktop', 'Mac OS', 'Other'
+
+    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.24 (KHTML, like Gecko) RockMelt/0.9.58.494 Chrome/11.0.696.71 Safari/534.24'
+    should_be 'Desktop', 'Mac OS', 'Other'
+
+    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.24 (KHTML, like Gecko) OutraCoisaQQR/123123'
+    should_be 'Desktop', 'Mac OS', 'Other'
+  end
+
+  it 'should be Windows and Chrome' do
     user_agent 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19'
     should_be 'Desktop', 'Windows', 'Chrome'
   end 
 
-  it 'should be Desktop, Windows and Safari' do
+  it 'should be Windows and Safari' do
     user_agent 'Mozilla/5.0 (Windows; U; Windows NT 6.1; tr-TR) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27'
     should_be 'Desktop', 'Windows', 'Safari'
   end 
 
-  it 'should be Desktop, Windows and Firefox' do
+  it 'should be Windows and Firefox' do
     user_agent 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20130406 Firefox/23.0'
     should_be 'Desktop', 'Windows', 'Firefox'
 
@@ -34,29 +53,7 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     should_be 'Desktop', 'Windows', 'Firefox'
   end 
 
-  it 'should be Desktop, Mac OS and Firefox' do
-    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0'
-    should_be 'Desktop', 'Mac OS', 'Firefox'
-
-    user_agent 'Mozilla/5.0 (Macintosh; PPC Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0'
-    should_be 'Desktop', 'Mac OS', 'Firefox'
-  end
-
-  it 'should be Desktop, Linux and Firefox' do
-    user_agent 'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
-    should_be 'Desktop', 'Linux', 'Firefox'
-
-    user_agent 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
-    should_be 'Desktop', 'Linux', 'Firefox'
-
-    user_agent 'Mozilla/5.0 (X11; Linux i686 on x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
-    should_be 'Desktop', 'Linux', 'Firefox'
-
-    user_agent 'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0) Gecko/20100101 Firefox/10.0 Fennec/10.0'
-    should_be 'Desktop', 'Linux', 'Firefox'
-  end
-
-  it 'should be Desktop, Windows and IE' do
+  it 'should be Windows and IE' do
     user_agent 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)'
     should_be 'Desktop', 'Windows', 'Internet Explorer'
     
@@ -76,7 +73,7 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     should_be 'Desktop', 'Windows', 'Internet Explorer'
   end
 
-  it 'should be Desktop, Windows, and Other' do
+  it 'should be Windows and Other' do
     user_agent 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.11' #opera
     should_be 'Desktop', 'Windows', 'Other'
 
@@ -93,18 +90,21 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     should_be 'Desktop', 'Windows', 'Other'
   end
 
-  it 'should be Desktop, Mac OS and Other' do
-    user_agent 'Opera/9.80 (Macintosh; Intel Mac OS X 10.8.2) Presto/2.12.388 Version/12.11'
-    should_be 'Desktop', 'Mac OS', 'Other'
+  it 'should be Linux and Firefox' do
+    user_agent 'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
 
-    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.24 (KHTML, like Gecko) RockMelt/0.9.58.494 Chrome/11.0.696.71 Safari/534.24'
-    should_be 'Desktop', 'Mac OS', 'Other'
+    user_agent 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
 
-    user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.24 (KHTML, like Gecko) OutraCoisaQQR/123123'
-    should_be 'Desktop', 'Mac OS', 'Other'
+    user_agent 'Mozilla/5.0 (X11; Linux i686 on x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
+
+    user_agent 'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0) Gecko/20100101 Firefox/10.0 Fennec/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
   end
 
-  it 'should be Desktop, Linux and Chrome' do
+  it 'should be Linux and Chrome' do
     user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5'
     should_be 'Desktop', 'Linux', 'Chrome'
   end
