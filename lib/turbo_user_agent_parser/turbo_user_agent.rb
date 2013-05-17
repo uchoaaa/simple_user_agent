@@ -1,5 +1,6 @@
 
 # Helpful links:
+# http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
 # https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
 # https://developers.google.com/chrome/mobile/docs/user-agent
 # http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safariwebcontent/OptimizingforSafarioniPhone/OptimizingforSafarioniPhone.html
@@ -36,16 +37,16 @@ class TurboUserAgent
   end
   
   def identify_os
-    if @partes.first =~ /iPhone/
+    if @partes.first =~ /iPad/
+      @os = 'iPad'
+      @device = 'Tablet'
+
+    elsif @partes.first =~ /iPhone/
       @os = 'iPhone'
       @device = 'Mobile'
 
     elsif @partes.first =~ /Android/
       @os = 'Android'
-
-    elsif @partes.first =~ /iPad/
-      @os = 'iPad'
-      @device = 'Tablet'
 
     elsif @partes.first =~ /Mac\ OS/ and not @user_agent.to_s =~ /Mobile/
       @os = 'Mac OS'
@@ -114,8 +115,12 @@ class TurboUserAgent
       
     elsif @os == 'iPad'
 
-      if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /Chrome\/[.0-9]*/
+      if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /CriOS\/[.0-9]*/
         @browser = 'Safari'
+      elsif @user_agent.to_s =~ /CriOS\/[.0-9]*/
+        @browser = 'Chrome'
+      else
+        @browser = 'Other'
       end
       
     elsif @device == 'Desktop'
