@@ -121,11 +121,13 @@ class TurboUserAgent
       end
       
     elsif @os == 'Windows Phone'
-      
+
       if @user_agent.to_s =~ /IEMobile\/[.0-9]*/
         @browser = 'Internet Explorer'
+      else
+        @browser = 'Other'
       end
-      
+
     end
   end
 end
