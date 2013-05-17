@@ -103,4 +103,9 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.24 (KHTML, like Gecko) OutraCoisaQQR/123123'
     should_be 'Desktop', 'Mac OS', 'Other'
   end
+
+  it 'should be Desktop, Linux and Chrome' do
+    user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5'
+    should_be 'Desktop', 'Linux', 'Chrome'
+  end
 end
