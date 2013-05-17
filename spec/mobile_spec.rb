@@ -36,4 +36,15 @@ describe 'TurboUserAgentParser to mobile user_agents strings' do
     should_be 'Mobile', 'Android', 'Firefox'
   end
 
+  it 'should be Windows Phone and Internet Explorer' do
+    user_agent 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)'
+    should_be 'Mobile', 'Windows Phone', 'Internet Explorer'
+
+    user_agent 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)'
+    should_be 'Mobile', 'Windows Phone', 'Internet Explorer'
+
+    user_agent 'Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; LG; GW910)'
+    should_be 'Mobile', 'Windows Phone', 'Internet Explorer'
+  end
+
 end

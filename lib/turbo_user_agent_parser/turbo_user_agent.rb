@@ -49,9 +49,13 @@ class TurboUserAgent
       @os = 'Mac OS'
       @device = 'Desktop'
 
-    elsif @partes.first =~ /Windows/
+    elsif @partes.first =~ /Windows/ and not @user_agent.to_s =~ /Windows\ Phone/ 
       @os = 'Windows'
       @device = 'Desktop'
+
+    elsif @user_agent.to_s =~ /Windows\ Phone/ 
+      @os = 'Windows Phone'
+      @device = 'Mobile'
 
     elsif @partes.first =~ /Linux/
       @os = 'Linux'
@@ -115,7 +119,13 @@ class TurboUserAgent
       elsif @user_agent.to_s =~ /MSIE [.0-9]*/
         @browser = 'Internet Explorer'
       end
-
+      
+    elsif @os == 'Windows Phone'
+      
+      if @user_agent.to_s =~ /IEMobile\/[.0-9]*/
+        @browser = 'Internet Explorer'
+      end
+      
     end
   end
 end
