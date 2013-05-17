@@ -166,8 +166,10 @@ class TurboUserAgent
       
       if @user_agent.to_s =~ /Mobile/ 
         @device = 'Mobile'
-      # else
-      #   @device = 'Tablet'
+      elsif @user_agent.to_s =~ /Tablet/ 
+        @device = 'Tablet'
+      else
+        @device = 'Tablet' #Google Nexus. Ver link acima.
       end
       
     else
