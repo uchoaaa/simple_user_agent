@@ -127,6 +127,8 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
 
     user_agent 'Mozilla/5.0 (compatible; Konqueror/4.5; FreeBSD) KHTML/4.5.4 (like Gecko)'
     should_be 'Desktop', 'Linux', 'Other'
+    
+    user_agent 'Mozilla/5.0 (X11; Ubuntu armv7l; rv:17.0) Gecko/20100101 OUTRA COISA QQR/17.0'
+    should_be 'Desktop', 'Linux', 'Other'
   end
-
 end

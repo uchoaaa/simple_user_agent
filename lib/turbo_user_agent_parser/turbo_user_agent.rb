@@ -59,7 +59,7 @@ class TurboUserAgent
       @os = 'Windows Phone'
       @device = 'Mobile'
 
-    elsif @partes.first =~ /Linux|FreeBSD/
+    elsif @partes.first =~ /Linux|FreeBSD|Ubuntu/
       @os = 'Linux'
       @device = 'Desktop'
       
