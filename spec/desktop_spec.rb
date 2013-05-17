@@ -76,4 +76,21 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     should_be 'Desktop', 'Windows', 'Internet Explorer'
   end
 
+  it 'should be Desktop, Windows, and Other' do
+    user_agent 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.11' #opera
+    should_be 'Desktop', 'Windows', 'Other'
+
+    user_agent 'Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0 Opera 12.11' #opera
+    should_be 'Desktop', 'Windows', 'Other'
+
+    user_agent 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1) Opera 12.11' #opera
+    should_be 'Desktop', 'Windows', 'Other'
+
+    user_agent 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.7 (KHTML, like Gecko) RockMelt/0.8.36.128 Chrome/7.0.517.44 Safari/534.7' #rockmelt
+    should_be 'Desktop', 'Windows', 'Other'
+
+    user_agent 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.7 (KHTML, like Gecko) OUTRA COISA QQR/0.8.36.128'
+    should_be 'Desktop', 'Windows', 'Other'
+  end
+
 end

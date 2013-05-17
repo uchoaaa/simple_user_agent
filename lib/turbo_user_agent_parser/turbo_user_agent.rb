@@ -3,6 +3,8 @@
 # https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
 # https://developers.google.com/chrome/mobile/docs/user-agent
 # http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safariwebcontent/OptimizingforSafarioniPhone/OptimizingforSafarioniPhone.html
+# http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-to-detect-the-BlackBerry-Browser/ta-p/559862
+# http://www.developer.nokia.com/Community/Wiki/User-Agent_headers_for_Nokia_devices
 
 # TODO:
 # Trocar Desktop por Computer
@@ -112,12 +114,14 @@ class TurboUserAgent
 
       if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /Chrome\/[.0-9]*/  #atenção ao NOT
         @browser = 'Safari'
-      elsif @user_agent.to_s =~ /Safari\/[.0-9]*/ and @user_agent.to_s =~ /Chrome\/[.0-9]*/
+      elsif @user_agent.to_s =~ /Safari\/[.0-9]*/ and @user_agent.to_s =~ /Chrome\/[.0-9]*/ and not @user_agent.to_s =~ /RockMelt/
         @browser = 'Chrome'
-      elsif @user_agent.to_s =~ /Firefox\/[.0-9]*/ and not @user_agent.to_s =~ /Seamonkey\/[.0-9]*/
+      elsif @user_agent.to_s =~ /Firefox\/[.0-9]*/ and not @user_agent.to_s =~ /Seamonkey\/[.0-9]*/ and not @user_agent.to_s =~ /Opera/
         @browser = 'Firefox'
-      elsif @user_agent.to_s =~ /MSIE [.0-9]*/
+      elsif @user_agent.to_s =~ /MSIE [.0-9]*/ and not @user_agent.to_s =~ /Opera/
         @browser = 'Internet Explorer'
+      else
+        @browser = 'Other'
       end
       
     elsif @os == 'Windows Phone'
