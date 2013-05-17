@@ -90,6 +90,9 @@ class TurboUserAgent
       elsif @user_agent.to_s =~ /Chrome\/[.0-9]*/ 
         @device  = 'Tablet'
         @browser = 'Chrome'
+      elsif @user_agent.to_s =~ /Firefox\/[.0-9]*/ and @user_agent.to_s =~ /Tablet/ 
+        @device  = 'Tablet'
+        @browser = 'Firefox'
       end
       
     elsif @os == 'iPad'

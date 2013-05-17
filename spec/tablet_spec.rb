@@ -16,4 +16,9 @@ describe 'TurboUserAgentParser to Tablet user_agents strings' do
     should_be 'Tablet', 'iPad', 'Safari'
   end
 
+  it 'should be Android and Firefox' do
+    user_agent 'Mozilla/5.0 (Android; Tablet; rv:13.0) Gecko/13.0 Firefox/13.0'
+    should_be 'Tablet', 'Android', 'Firefox'
+  end
+
 end
