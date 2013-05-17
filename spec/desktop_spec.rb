@@ -41,4 +41,18 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     user_agent 'Mozilla/5.0 (Macintosh; PPC Mac OS X x.y; rv:10.0) Gecko/20100101 Firefox/10.0'
     should_be 'Desktop', 'Mac OS', 'Firefox'
   end
+
+  it 'should be Desktop, Linux and Firefox' do
+    user_agent 'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
+
+    user_agent 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
+
+    user_agent 'Mozilla/5.0 (X11; Linux i686 on x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
+
+    user_agent 'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0) Gecko/20100101 Firefox/10.0 Fennec/10.0'
+    should_be 'Desktop', 'Linux', 'Firefox'
+  end
 end

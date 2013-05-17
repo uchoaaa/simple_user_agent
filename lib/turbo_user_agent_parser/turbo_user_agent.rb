@@ -50,6 +50,10 @@ class TurboUserAgent
       @os = 'Windows'
       @device = 'Desktop'
 
+    elsif @partes.first =~ /Linux/
+      @os = 'Linux'
+      @device = 'Desktop'
+
     end
   end
   
