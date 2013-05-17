@@ -1,3 +1,11 @@
+
+# Helpful links:
+# https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
+# https://developers.google.com/chrome/mobile/docs/user-agent
+
+
+# TODO:
+# Trocar Desktop por Computer
 class TurboUserAgent
   attr_reader :user_agent, :device, :os, :browser
   
@@ -69,8 +77,6 @@ class TurboUserAgent
 
       if @user_agent.to_s =~ /Safari\/[.0-9]*/ and not @user_agent.to_s =~ /Chrome\/[.0-9]*/
         @browser = 'Safari'
-      # elsif @user_agent.to_s =~ /Safari\/[.0-9]*/ and @user_agent.to_s =~ /Chrome\/[.0-9]*/
-      #   @browser = 'Chrome'
       end
       
     elsif @device == 'Desktop'
