@@ -23,4 +23,9 @@ describe 'TurboUserAgentParser to desktops user_agents strings' do
     should_be 'Desktop', 'Windows', 'Safari'
   end 
 
+  it 'shoud be Desktop, Windows and Firefox' do
+    user_agent 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20130406 Firefox/23.0'
+    should_be 'Desktop', 'Windows', 'Firefox'
+  end 
+
 end
