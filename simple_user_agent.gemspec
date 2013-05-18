@@ -5,7 +5,7 @@ require 'simple_user_agent/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "simple_user_agent"
-  spec.version       = TurboUserAgentParser::VERSION
+  spec.version       = SimpleUserAgent::VERSION
   spec.authors       = ["Rafael Uchoa"]
   spec.email         = ["rafael@overmediacast.com"]
   spec.description   = %q{Parsing user_agents like a boss!}

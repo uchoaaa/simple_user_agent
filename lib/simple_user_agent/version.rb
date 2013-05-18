@@ -1,3 +1,3 @@
-module TurboUserAgentParser
-  VERSION = "0.0.1"
+module SimpleUserAgent
+  VERSION = "1.0.0"
 end
