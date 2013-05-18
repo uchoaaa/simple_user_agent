@@ -1,3 +1,7 @@
 class UserAgent
-  attr_accessor :device, :os, :browser
+  attr_accessor :user_agent, :device, :os, :browser
+  
+  def initialize(user_agent_str)
+    @user_agent = user_agent_str
+  end
 end
