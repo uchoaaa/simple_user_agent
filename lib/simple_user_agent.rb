@@ -6,14 +6,6 @@
 # http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-to-detect-the-BlackBerry-Browser/ta-p/559862
 # http://www.developer.nokia.com/Community/Wiki/User-Agent_headers_for_Nokia_devices
 
-# TODO:
-# Retornar apenas uma chave, uma refêrencia, para salvar no Mongo. Não é necessário salvar as Strings completas.
-# Refactor: add alias 'platform' para 'os'
-
-# (?) I18n: Computer, ordenador, computador..
-# (?) Add UA de App como agregadores (Flipboard), Google Reader, etc
-# (?) Add UA de crawlers (google, bing, facebook, etc) #acho que não precisa pq essa chamada para identificar vem via JS
-
 require 'simple_user_agent/version'
 
 require 'simple_user_agent/parsers/operating_system'
@@ -22,3 +14,35 @@ require 'simple_user_agent/parsers/device'
 
 require 'simple_user_agent/user_agent'
 require 'simple_user_agent/user_agent_parser'
+
+# DEVICES
+# :c => 'Computer'
+# :t => 'Tablet'
+# :m => 'Mobile'
+# :oth => 'Other'
+
+# OS
+# :mac => 'Mac OS'
+# :win => 'Windows'
+# :lnx => 'Linux'
+# :oth => 'Other'
+# 
+# :iph => 'iPhone'
+# :adr => 'Android' #and podia confundir ou gerar conflito 
+# :wip => 'Windows Phone'
+# :bkb => 'Blackberry'
+# :oth => 'Other'
+# 
+# :ipa => 'iPad'
+# :adr => 'Android'
+# :win => 'Windows'
+# :bkb => 'Blackberry'
+# :oth => 'Other'
+
+# BROWSER
+# :sf => 'Safari'
+# :ch => 'Chrome'
+# :ff => 'Firefox'
+# :ie => 'Internet Explorer'
+# :oth => 'Other'
+

@@ -1,3 +1,3 @@
 class UserAgent
-  attr_accessor :user_agent, :device, :os, :browser
+  attr_accessor :device, :os, :browser
 end
