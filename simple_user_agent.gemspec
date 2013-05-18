@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'turbo_user_agent_parser/version'
+require 'simple_user_agent/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "turbo_user_agent_parser"
+  spec.name          = "simple_user_agent"
   spec.version       = TurboUserAgentParser::VERSION
   spec.authors       = ["Rafael Uchoa"]
   spec.email         = ["rafael@overmediacast.com"]

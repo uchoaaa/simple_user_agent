@@ -2,7 +2,7 @@
 require 'mocha/api'
 require 'mocha-on-bacon'
 require 'bacon'
-require 'turbo_user_agent_parser'
+require 'simple_user_agent'
 require 'ruby-debug'
 
 def today_is( fake_day )
@@ -11,13 +11,13 @@ def today_is( fake_day )
 end
 
 def user_agent(user_agent_str)
-  @turbo = TurboUserAgentParser.parse(user_agent_str)
+  @ua = UserAgentParser.parse(user_agent_str)
 end
 
 def should_be(device, os, browser)
-  @turbo.device.should  == device
-  @turbo.os.should      == os
-  @turbo.browser.should == browser
+  @ua.device.should  == device
+  @ua.os.should      == os
+  @ua.browser.should == browser
 end
 
 Bacon.summary_on_exit

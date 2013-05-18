@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'turbo_user_agent_parser'
+    gem 'simple_user_agent'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install turbo_user_agent_parser
+    $ gem install simple_user_agent
 
 ## Usage
 

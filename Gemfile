@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in turbo_user_agent_parser.gemspec
+# Specify your gem's dependencies in simple_user_agent.gemspec
 gemspec

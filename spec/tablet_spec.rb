@@ -1,7 +1,7 @@
 # encoding: utf-8
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe 'TurboUserAgentParser to Tablet user_agents strings' do
+describe 'UserAgentParser to Tablet user_agents strings' do
 
   it 'should be iPad and Safari' do
     user_agent 'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10'
