@@ -9,9 +9,15 @@
 
 # TODO:
 # Trocar Desktop por Computer
-# I18n? Computer, ordenador, computador..
-# Add UA de App como agregadores (Flipboard), Google Reader, etc
-# Add UA de crawlers (google, bing, facebook, etc) #acho que não precisa pq essa chamada para identificar vem via JS
+# Retornar apenas uma chave, uma refêrencia, para salvar no Mongo. Não é necessário salvar as Strings completas.
+# (?) I18n: Computer, ordenador, computador..
+# (?) Add UA de App como agregadores (Flipboard), Google Reader, etc
+# (?) Add UA de crawlers (google, bing, facebook, etc) #acho que não precisa pq essa chamada para identificar vem via JS
+# Refactor: separar lógica do parser do objeto de domínio
+# Refactor: add alias 'platform' para 'os'
+# Deploy!
+# (?) Renomear gem para SimpleUserAgent
+
 class TurboUserAgent
   attr_reader :user_agent, :device, :os, :browser
   
@@ -30,9 +36,9 @@ class TurboUserAgent
 
   def process!
     @partes = @user_agent.to_s.match(MATCHER).to_a
-    
+
     identify_os
-    identify_browser 
+    identify_browser if @browser.nil?
     identify_device if @device.nil?
   end
   
@@ -105,7 +111,6 @@ class TurboUserAgent
 
     elsif @os == 'Android'
 
-      # https://developers.google.com/chrome/mobile/docs/user-agent
       if @user_agent.to_s =~ /Chrome\/[.0-9]* Mobile/ 
         @browser = 'Chrome'
         @device  = 'Mobile'
