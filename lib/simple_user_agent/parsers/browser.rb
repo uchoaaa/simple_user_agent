@@ -44,7 +44,7 @@ module Parsers
           @user_agent.browser = 'Other'
         end
 
-      elsif @user_agent.device == 'Desktop'
+      elsif @user_agent.device == 'Computer'
 
         if @user_agent_string =~ /Safari\/[.0-9]*/ and not @user_agent_string =~ /Chrome\/[.0-9]*/  #atenção ao NOT
           @user_agent.browser = 'Safari'

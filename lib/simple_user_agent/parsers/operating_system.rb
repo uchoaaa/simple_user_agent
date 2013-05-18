@@ -15,11 +15,11 @@ module Parsers
 
       elsif @product.first =~ /Mac\ OS/ and not @user_agent_string =~ /Mobile/
         @user_agent.os = 'Mac OS'
-        @user_agent.device = 'Desktop'
+        @user_agent.device = 'Computer'
 
       elsif @product.first =~ /Windows/ and not @user_agent_string =~ /Windows\ Phone/  and not @user_agent_string =~ /Touch/ 
         @user_agent.os = 'Windows'
-        @user_agent.device = 'Desktop'
+        @user_agent.device = 'Computer'
 
       elsif @user_agent_string =~ /Windows\ Phone/ 
         @user_agent.os = 'Windows Phone'
@@ -37,7 +37,7 @@ module Parsers
 
       elsif @product.first =~ /Linux|FreeBSD|Ubuntu/
         @user_agent.os = 'Linux'
-        @user_agent.device = 'Desktop'
+        @user_agent.device = 'Computer'
 
       elsif @product.first =~ /BB10/
         @user_agent.os = 'Blackberry'
