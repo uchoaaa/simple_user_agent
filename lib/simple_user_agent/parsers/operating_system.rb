@@ -13,24 +13,24 @@ module Parsers
       elsif @product.first =~ /Android/
         @user_agent.os = 'Android'
 
-      elsif @product.first =~ /Mac\ OS/ and not @user_agent.to_s =~ /Mobile/
+      elsif @product.first =~ /Mac\ OS/ and not @user_agent_string =~ /Mobile/
         @user_agent.os = 'Mac OS'
         @user_agent.device = 'Desktop'
 
-      elsif @product.first =~ /Windows/ and not @user_agent.to_s =~ /Windows\ Phone/  and not @user_agent.to_s =~ /Touch/ 
+      elsif @product.first =~ /Windows/ and not @user_agent_string =~ /Windows\ Phone/  and not @user_agent_string =~ /Touch/ 
         @user_agent.os = 'Windows'
         @user_agent.device = 'Desktop'
 
-      elsif @user_agent.to_s =~ /Windows\ Phone/ 
+      elsif @user_agent_string =~ /Windows\ Phone/ 
         @user_agent.os = 'Windows Phone'
         @user_agent.device = 'Mobile'
 
-      elsif @user_agent.to_s =~ /Windows/ and @user_agent.to_s =~ /Touch/
+      elsif @user_agent_string =~ /Windows/ and @user_agent_string =~ /Touch/
         @user_agent.os = 'Windows'
         @user_agent.device = 'Tablet'
         @user_agent.browser = 'Internet Explorer'
 
-      elsif @user_agent.to_s =~ /PlayBook/
+      elsif @user_agent_string =~ /PlayBook/
         @user_agent.os = 'Blackberry'
         @user_agent.device = 'Tablet'
         @user_agent.browser = 'Other'
@@ -44,7 +44,7 @@ module Parsers
         @user_agent.device = 'Mobile'
         @user_agent.browser = 'Other'
 
-      elsif @user_agent.to_s =~ /Mobile/ or @product.first =~ /SymbOS|SymbianOS|webOS/
+      elsif @user_agent_string =~ /Mobile/ or @product.first =~ /SymbOS|SymbianOS|webOS/
         @user_agent.os = 'Other'
         @user_agent.device = 'Mobile'
         @user_agent.browser = 'Other'

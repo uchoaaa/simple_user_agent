@@ -21,7 +21,6 @@ class UserAgentParser
   def parse!
     @product = @user_agent_string.match(MATCHER).to_a
 
-    #TODO jogar cada lógica dessa para uma classe própria
     identify_operating_system
     identify_browser if @user_agent.browser.nil?
     identify_device  if @user_agent.device.nil?
