@@ -26,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bacon', '1.1.0'
   spec.add_development_dependency 'mocha-on-bacon', '0.2.1'
   spec.add_development_dependency 'guard-bacon', '1.0.7'
+  spec.add_development_dependency 'fury'
   
 end
