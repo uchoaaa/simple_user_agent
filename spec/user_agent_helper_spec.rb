@@ -29,6 +29,13 @@ describe 'UserAgentHelper' do
       UserAgentHelper.device_name('oth').should == 'Other'
     end
 
-    # it 'should return "Other" to any other key'
+    it 'should return "Other" to any other key' do
+      UserAgentHelper.device_name(:wrong).should  == 'Other'
+      UserAgentHelper.device_name('other thing').should  == 'Other'
+      UserAgentHelper.device_name(nil).should  == 'Other'
+    end
+
+    # it 'should raise exeception if there is no param'
+      # UserAgentHelper.device_name.should == nil
   end
 end

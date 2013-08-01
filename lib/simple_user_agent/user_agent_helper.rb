@@ -5,8 +5,9 @@ class UserAgentHelper
     :m   => 'Mobile',
     :oth => 'Other'
   }
-  
+
   def self.device_name(device_key)
-    DEVICES[device_key.to_sym]
+    key = device_key || :oth
+    DEVICES[key.to_sym] || "Other"
   end
 end
