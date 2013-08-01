@@ -35,7 +35,11 @@ describe 'UserAgentHelper' do
       UserAgentHelper.device_name(nil).should  == 'Other'
     end
 
-    # it 'should raise exeception if there is no param'
-      # UserAgentHelper.device_name.should == nil
+    it 'should raise exeception if there is no param' do
+      lambda {
+        UserAgentHelper.device_name
+
+      }.should.raise Exception
+    end  
   end
 end
