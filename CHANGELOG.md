@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.0
+### 1 Aug 2013
+* Helper created to return the device, browser and OS names from a key
+
 ## 1.0.0
 ### 18 May 2013
 * Parses a UserAgent string and identify the Device (Compute, Tablet or Mobile), the Operating System and the Browser
