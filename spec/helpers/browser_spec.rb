@@ -20,11 +20,11 @@ describe 'UserAgentHelper' do
       UserAgentHelper.browser_name(:ch).should  == 'Chrome'
       UserAgentHelper.browser_name('ch').should == 'Chrome'
     end
-    # 
-    # it 'should return "Mobile" to key :m' do
-    #   UserAgentHelper.browser_name(:m).should  == 'Mobile'
-    #   UserAgentHelper.browser_name('m').should == 'Mobile'
-    # end
+    
+    it 'should return "Firefox" to key :ff' do
+      UserAgentHelper.browser_name(:ff).should  == 'Firefox'
+      UserAgentHelper.browser_name('ff').should == 'Firefox'
+    end
     # 
     # it 'should return "Other" to key :oth' do
     #   UserAgentHelper.browser_name(:oth).should  == 'Other'
