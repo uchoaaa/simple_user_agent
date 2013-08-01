@@ -14,6 +14,7 @@ require 'simple_user_agent/parsers/device'
 
 require 'simple_user_agent/user_agent'
 require 'simple_user_agent/user_agent_parser'
+require 'simple_user_agent/user_agent_helper'
 
 # DEVICES
 # :c => 'Computer'
